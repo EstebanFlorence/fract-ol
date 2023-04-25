@@ -6,13 +6,13 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/04/25 19:16:39 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/04/25 23:50:37 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fractol
 
-SRCS	=	fractol.c
+SRCS	=	fractol.c	tools.c
 
 OBJS	=	$(addprefix obj/,$(notdir $(SRCS:.c=.o)))
 
@@ -20,7 +20,7 @@ CC		=	gcc
 
 RM		=	rm -rf
 
-FLAGS	=	-g -Wall -Wextra -Werror -Ilibft
+FLAGS	=	-g -Wall -Wextra -Werror -Ilibft/include
 
 LIB		=	libft
 

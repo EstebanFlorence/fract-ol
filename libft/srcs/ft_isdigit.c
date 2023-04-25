@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 23:44:01 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 16:02:36 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/12/27 00:54:11 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/include/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+int	ft_isdigit(int c)
 {
-    void    *ptr;
-    double  x;
-    double  y;
-
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}

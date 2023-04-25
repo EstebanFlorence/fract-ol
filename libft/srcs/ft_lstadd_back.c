@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
-/*   Updated: 2022/11/02 23:18:17 by adi-nata         ###   ########.fr       */
+/*   Created: 2023/03/06 23:28:14 by adi-nata          #+#    #+#             */
+/*   Updated: 2023/03/06 23:28:41 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*novalist;
-	t_list	*novonodo;
+	t_stack	*last;
 
-	if (!f || !del)
-		return (NULL);
-	novalist = NULL;
-	while (lst)
+	if (!lst)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		novonodo = ft_lstnew(f(lst->content));
-		if (novonodo == NULL)
+		last = ft_lstlast(*lst);
+		if (last != NULL)
 		{
-			ft_lstclear(&novalist, del);
-			return (NULL);
+			last->next = new;
+			new->prev = last;
 		}
-		ft_lstadd_back(&novalist, novonodo);
-		lst = lst->next;
 	}
-	return (novalist);
 }

@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
-/*   Updated: 2022/11/02 14:03:00 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/25 15:03:47 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/12/27 01:06:53 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_putstr(char *s)
 {
-	int		size;
-	t_list	*next;
-
-	if (!lst)
-		return (0);
-	size = 0;
-	next = lst;
-	while (next != NULL)
-	{
-		next = next->next;
-		size++;
-	}
-	return (size);
+	write (1, s, ft_strlen(s));
 }

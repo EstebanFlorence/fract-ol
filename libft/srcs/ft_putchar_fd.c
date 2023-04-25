@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 22:49:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2022/11/02 13:37:45 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/25 15:03:34 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/12/27 01:03:16 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_list	*new;
-
-	new = (t_list *)malloc(sizeof(t_list) * 1);
-	if (new == NULL)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	write(fd, &c, 1);
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 23:44:01 by adi-nata         ###   ########.fr       */
+/*   Created: 2023/03/06 23:26:37 by adi-nata          #+#    #+#             */
+/*   Updated: 2023/03/06 23:27:08 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/include/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+t_stack	*ft_lstnew(int nb)
 {
-    void    *ptr;
-    double  x;
-    double  y;
+	t_stack	*new;
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	new = (t_stack *)malloc(sizeof(t_stack) * 1);
+	if (new == NULL)
+		return (NULL);
+	new->nbr = nb;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}

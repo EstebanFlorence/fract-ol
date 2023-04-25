@@ -5,87 +5,76 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/04 01:41:56 by adi-nata          #+#    #+#              #
-#    Updated: 2023/04/25 14:01:03 by adi-nata         ###   ########.fr        #
+#    Created: 2023/03/28 21:24:46 by adi-nata          #+#    #+#              #
+#    Updated: 2023/04/04 17:04:59 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS    = ft_isalpha.c\
-		ft_isdigit.c\
-		ft_isalnum.c\
-		ft_isascii.c\
-		ft_isprint.c\
-		ft_tolower.c\
-        ft_toupper.c\
-        ft_memset.c\
-        ft_bzero.c\
-        ft_memcpy.c\
-        ft_memcmp.c\
-        ft_memmove.c\
-        ft_memchr.c\
-        ft_strlen.c\
-        ft_strlcpy.c\
-        ft_strncmp.c\
-        ft_strchr.c\
-        ft_strnstr.c\
-        ft_atoi.c\
-        ft_calloc.c\
-        ft_strdup.c\
-        ft_strrchr.c\
-        ft_strlcat.c\
-        ft_substr.c\
-        ft_strjoin.c\
-        ft_strtrim.c\
-        ft_strmapi.c\
-        ft_putchar_fd.c\
-        ft_putstr_fd.c\
-        ft_putendl_fd.c\
-        ft_putnbr_fd.c\
-        ft_split.c\
-        ft_itoa.c\
-        ft_striteri.c\
-        ft_lstnew.c\
-        ft_lstadd_front.c\
-        ft_lstsize.c\
-        ft_lstlast.c\
-        ft_lstadd_back.c\
-        ft_lstdelone.c\
-        ft_lstclear.c\
-        ft_lstiter.c\
-        ft_lstmap.c\
-        get_next_line.c
+NAME	=	include/libft.a
+
+SRCS	=	srcs/ft_isalpha.c		srcs/ft_isdigit.c\
+			srcs/ft_isalnum.c		srcs/ft_isascii.c\
+			srcs/ft_isprint.c		srcs/ft_tolower.c\
+			srcs/ft_toupper.c		srcs/ft_memset.c\
+			srcs/ft_bzero.c			srcs/ft_memcpy.c\
+			srcs/ft_memcmp.c		srcs/ft_memmove.c\
+			srcs/ft_memchr.c		srcs/ft_strlen.c\
+			srcs/ft_strlcpy.c		srcs/ft_strncmp.c\
+			srcs/ft_strchr.c		srcs/ft_strnstr.c\
+			srcs/ft_atoi.c			srcs/ft_calloc.c\
+			srcs/ft_strdup.c		srcs/ft_strrchr.c\
+			srcs/ft_strlcat.c		srcs/ft_substr.c\
+			srcs/ft_strjoin.c		srcs/ft_strtrim.c\
+			srcs/ft_strmapi.c		srcs/ft_striteri.c\
+			srcs/ft_putchar.c		srcs/ft_putchar_fd.c\
+			srcs/ft_putstr.c		srcs/ft_putstr_fd.c\
+			srcs/ft_putendl_fd.c	srcs/ft_putnbr.c\
+			srcs/ft_putnbr_fd.c		srcs/ft_strcmp.c\
+			srcs/ft_itoa.c			srcs/ft_lstnew.c\
+			srcs/ft_lstadd_front.c	srcs/ft_lstsize.c\
+			srcs/ft_lstlast.c		srcs/ft_lstadd_back.c\
+			srcs/ft_lstdelone.c		srcs/ft_lstclear.c\
+			srcs/ft_lstiter.c		srcs/get_next_line.c\
+			\
+			ft_printf/ft_printf.c\
+			ft_printf/syntax.c\
+			ft_printf/checkflags.c\
+			ft_printf/printftools1.c\
+			ft_printf/printftools2.c\
+			ft_printf/printftools3.c\
+			ft_printf/printf_c.c\
+			ft_printf/printf_s.c\
+			ft_printf/printf_p.c\
+			ft_printf/printf_di.c\
+			ft_printf/printf_u.c\
+			ft_printf/printf_x.c
+
+OBJS	=	${SRCS:.c=.o}
+
+CC		=	gcc
+
+RM		=	rm -f
+
+FLAGS	=	-g -Wall -Wextra -Werror -Iinclude/
 
 
 
-OBJS    = $(addprefix obj/,$(notdir $(SRCS:.c=.o)))
+${NAME}:	${OBJS}
 
-NAME    = libft.a
-
-CC  = gcc
-
-RM  = rm -rf
-
-FLAGS   = -Wall -Wextra -Werror
-
-
-${NAME}:	objs ${OBJS}
-	@ar rcs ${NAME} ${OBJS}
+			@ar rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
-obj/%.o:	%.c
-		@${CC} ${FLAGS} -c $< -o $@
-
-objs:
-		@mkdir -p obj
+.c.o:
+			@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-		@${RM} obj
+			@${RM} *.o */*.o */*/*.o
 
-fclean:     clean
-		@${RM} ${NAME}
+fclean:		clean
+			@${RM} ${NAME}
 
-re:			fclean ${NAME}
+re:			fclean all
 
-.PHONY: all clean fclean re
 
+.PHONY:			all clean fclean re bonus bonusclean bonusfclean bonusre

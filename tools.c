@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:05:06 by adi-nata          #+#    #+#             */
-/*   Updated: 2022/11/02 20:54:10 by adi-nata         ###   ########.fr       */
+/*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
+/*   Updated: 2023/04/25 23:40:02 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fractol.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+void	ft_error(int n)
 {
-	char	*d;
-	size_t	i;
-	size_t	n;
-
-	i = 0;
-	n = ft_strlen(s);
-	d = (char *)malloc(sizeof(char) * (len + 1));
-	if (!d)
-		return (NULL);
-	while (i < len && i + start < n)
-	{
-		d[i] = s[start + i];
-		i++;
-	}
-	d[i] = '\0';
-	return (d);
+    if (n == 0)
+    {
+        ft_printf("usage: ./fractol <name>\n");
+        ft_printf("Mandelbrot\tJulia\tBurningship\n");
+        exit(0);
+    }
+    
+    exit(EXIT_FAILURE);
 }

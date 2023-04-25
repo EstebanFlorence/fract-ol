@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   printf_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
-/*   Updated: 2022/10/24 14:11:27 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/11/14 10:05:54 by adi-nata          #+#    #+#             */
+/*   Updated: 2023/03/04 16:42:52 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_printfc(char c, t_format *flag)
 {
-	int	i;
-
-	i = ft_strlen(s);
-	if (s != NULL)
+	if (flag->meno)
 	{
-		while (i >= 0)
-		{
-			if (s[i] == (char)c)
-				return ((char *)&s[i]);
-			i--;
-		}
+		write(1, &c, 1);
+		flag->len += 1;
 	}
-	return (NULL);
+	ft_managewdt(1, flag);
+	if (!flag->meno)
+	{
+		write(1, &c, 1);
+		flag->len += 1;
+	}
 }

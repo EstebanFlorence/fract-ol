@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:02:57 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/04 19:06:48 by adi-nata         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:26:17 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	numstr(const char *s, char c)
 	return (n);
 }
 
-void	ft_splitter(const char *s, char c, char **split, size_t n)
+void	ft_splitta(const char *s, char c, char **split, size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -73,7 +73,7 @@ char	**ft_split(const char *s, char c)
 
 	n = numstr(s, c);
 	split = malloc(sizeof(*split) * (n + 1));
-	ft_splitter(s, c, split, n);
+	ft_splitta(s, c, split, n);
 	split[n] = NULL;
 	return (split);
 }
