@@ -6,7 +6,7 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/04/25 23:50:37 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/04/25 23:58:23 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC		=	gcc
 
 RM		=	rm -rf
 
-FLAGS	=	-g -Wall -Wextra -Werror -Ilibft/include
+FLAGS	=	-g -Wall -Wextra -Werror -Ilibft/include/
 
 LIB		=	libft
 
@@ -37,7 +37,7 @@ ${NAME}:	objs ${OBJS}
 			@echo "$(GREEN)$(LIB) created[0m ✔️"
 
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-			@${CC} ${FLAGS} ${OBJS} -L./libft -lft -o ${NAME}
+			@${CC} ${FLAGS} ${OBJS} -L./libft/include -lft -o ${NAME}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}

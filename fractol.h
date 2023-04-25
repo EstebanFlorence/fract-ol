@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 23:44:01 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:29:22 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@
 
 typedef struct s_fractol
 {
-    void    *ptr;
-    double  x;
-    double  y;
+    void	*mlx;
+    double	x;
+    double	y;
+    double	xmin;
+    double	xmax;
+    double	ymin;
+    double	ymax;
 
-}   t_fractol;
+}	t_fractol;
 
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
+void	ft_fractol(int ac, char **av);
+void	ft_check(int ac, char **av);
+void	ft_innit(t_fractol *fractol);
+void	ft_error(int n);
 
 
 #endif
