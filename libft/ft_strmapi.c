@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/25 15:03:17 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/11/01 12:59:18 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
-
-typedef struct s_fractol
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
+	unsigned int	i;
+	char			*d;
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	i = 0;
+	d = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!s)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		d[i] = f(i, s[i]);
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
+}

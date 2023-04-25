@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 17:04:23 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/10/11 17:04:24 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+//#include <stdio.h>
+//#include <ctype.h>
+#include "libft.h"
 
-typedef struct s_fractol
+int	ft_tolower(int c)
 {
+	if (c > 64 && c < 91)
+	{
+		c = c + 32;
+	}
+	return (c);
+}
 
-}   t_fractol;
+/*int main()
+{
+	char c = 'C';
 
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	printf("%c", ft_tolower(c));
+}*/

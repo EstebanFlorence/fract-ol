@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/25 15:03:34 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/10/25 15:03:35 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
-
-typedef struct s_fractol
+void	ft_putchar_fd(char c, int fd)
 {
-
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	write(fd, &c, 1);
+}

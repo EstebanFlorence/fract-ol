@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/11/02 22:31:46 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	if (lst != NULL)
+	{
+		while (1)
+		{
+			(*f)(lst->content);
+			lst = lst->next;
+			if (lst == NULL)
+				return ;
+		}
+	}
+}

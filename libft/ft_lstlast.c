@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/11/02 14:13:59 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+t_list	*ft_lstlast(t_list *lst)
 {
+	t_list	*next;
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	if (lst != NULL)
+	{
+		next = lst;
+		while (1)
+		{
+			if (next->next == NULL)
+				return (next);
+			next = next->next;
+		}
+	}
+	return (NULL);
+}

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/10/24 14:11:27 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+char	*ft_strrchr(const char *s, int c)
 {
+	int	i;
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	i = ft_strlen(s);
+	if (s != NULL)
+	{
+		while (i >= 0)
+		{
+			if (s[i] == (char)c)
+				return ((char *)&s[i]);
+			i--;
+		}
+	}
+	return (NULL);
+}

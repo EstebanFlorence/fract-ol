@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/10 22:42:03 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/10/10 22:42:06 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+//#include <stdio.h>
+//#include <strings.h>
+#include "libft.h"
 
-typedef struct s_fractol
+void	ft_bzero(void *s, size_t n)
 {
+	size_t			i;
 
-}   t_fractol;
+	i = 0;
+	while (i < n)
+		((unsigned char *)s)[i++] = '\0';
+}
 
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+/*int main()
+{
+	char s[20] = "ti amo";
+	char t[20] = "ti amo";
+	
+	ft_bzero(s + 2, 3*sizeof(char));
+	bzero(t + 2, 3*sizeof(char));
+	
+	printf("mio: %s | loro: %s", s, t);
+}*/

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 16:02:27 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/11/02 23:18:17 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+#include "libft.h"
 
-typedef struct s_fractol
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*novalist;
+	t_list	*novonodo;
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+	if (!f || !del)
+		return (NULL);
+	novalist = NULL;
+	while (lst)
+	{
+		novonodo = ft_lstnew(f(lst->content));
+		if (novonodo == NULL)
+		{
+			ft_lstclear(&novalist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&novalist, novonodo);
+		lst = lst->next;
+	}
+	return (novalist);
+}

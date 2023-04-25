@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/25 19:45:07 by adi-nata         ###   ########.fr       */
+/*   Created: 2022/10/11 17:05:06 by adi-nata          #+#    #+#             */
+/*   Updated: 2022/10/11 17:05:07 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-# include "libft/libft.h"
+//#include <stdio.h>
+//#include <ctype.h>
+#include "libft.h"
 
-typedef struct s_fractol
+int	ft_toupper(int c)
 {
+	if (c > 96 && c < 123)
+		c = c - 32;
+	return (c);
+}
 
-}   t_fractol;
-
-void    ft_innit(int ac, char **av);
-void    ft_error(int n);
-
-
-#endif
+/*int main()
+{
+	char c = 'c';
+	
+	printf("%c", ft_toupper(c));
+}*/
