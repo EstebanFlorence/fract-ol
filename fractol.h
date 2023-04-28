@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/26 22:43:45 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/29 00:15:59 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 
 # define WIN_WIDTH 	500
 # define WIN_HEIGHT 500
+
+typedef struct s_image
+{
+	void	*ptr;
+	char	*data;
+	int		bitsxpixel;
+	int		size_line;
+	int		endian;
+
+}	t_image;
 
 typedef struct s_fractol
 {
@@ -35,21 +45,16 @@ typedef struct s_fractol
 	t_image	*img;
 }	t_fractol;
 
-typedef struct s_image
-{
-	void	*ptr;
-	char	*data;
-	int		bitsxpixel;
-	int		size_line;
-	int		endian;
-
-}	t_image;
-
 void	ft_fractol(t_fractol *fractol);
 void	ft_check(int ac, char **av, t_fractol *fractol);
 void	ft_mlx(t_fractol *fractol);
 void	ft_innit(t_fractol *fractol);
 void	ft_error(int n);
+
+void	ft_mandelbrot();
+void	ft_julia();
+void	ft_yarrr();
+
 
 
 #endif

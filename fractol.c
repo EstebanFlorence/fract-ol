@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/26 23:19:57 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/29 00:42:55 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	ft_mlx(t_fractol *fractol)
 
 void	ft_check(int ac, char **av, t_fractol *fractol)
 {
-	if (ft_strncmp(av[1], "Mandelbrot", ft_strlen(av[1])) || \
-		ft_strncmp(av[1], "Julia", ft_strlen(av[1])) || \
+	if (ft_strncmp(av[1], "Mandelbrot", ft_strlen(av[1])) && \
+		ft_strncmp(av[1], "Julia", ft_strlen(av[1])) && \
 		ft_strncmp(av[1], "Julia", ft_strlen(av[1])))
 		ft_error(0);
 	fractol->fractal = av[1];
