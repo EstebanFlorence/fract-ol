@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/04/29 00:15:59 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:23:08 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/include/ft_printf.h"
 # include "minilibx-linux/mlx.h"
 
+# define MAX_ITER	200
 # define WIN_WIDTH 	500
 # define WIN_HEIGHT 500
 
