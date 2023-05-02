@@ -6,7 +6,7 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/04/26 19:36:43 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/04/30 22:41:58 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,9 +68,6 @@ clean:
 fclean:		clean
 			@ echo "$(RED)Deleting $(CYAN)$(LIB) $(CLR_RMV)binary ✔️"
 			@make fclean -C ./libft
-
-			@ echo "$(RED)Deleting $(CYAN)$(LIBX) $(CLR_RMV) objs ✔️"
-			@make clean -C ./minilibx-linux
 
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 			@${RM} ${NAME}

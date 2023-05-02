@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/29 19:39:45 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/30 14:26:34 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ void	ft_mlx(t_fractol *fractol)
 	//	put colours on window
 	while(i < WIN_WIDTH * WIN_HEIGHT * (fractol->img->bitsxpixel / 8))
 	{
-		fractol->img->data[i] = 255;
-		fractol->img->data[i + 1] = 255;
+		fractol->img->data[i] = 0;
+		fractol->img->data[i + 1] = 0;
 		fractol->img->data[i + 2] = 255;
 
 		i += (fractol->img->bitsxpixel / 8);
 	}
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->data, 0, 0);
+	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	mlx_loop(fractol->mlx);
 }
 
@@ -88,6 +88,7 @@ int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
+	fractol.img = malloc(sizeof(t_image));
 	ft_check(ac, av, &fractol);
 	ft_mlx(&fractol);
 	//ft_innit(&fractol);

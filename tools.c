@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/29 00:15:35 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/04/30 14:28:28 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_error(int n)
 	{
 		ft_printf("usage: ./fractol <fractal>\nFractals available:\n");
 		ft_printf("> Mandelbrot\n> Julia\n> Burningship\n");
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
     if (n == 1)
 		perror("mlx() error");
