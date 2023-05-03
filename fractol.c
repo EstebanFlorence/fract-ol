@@ -6,13 +6,11 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/30 14:26:34 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:08:04 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-
 
 void	ft_fractol(t_fractol *fractol)
 {
@@ -34,6 +32,16 @@ void	ft_innit(t_fractol *fractol)
 	fractol->y_max = 2.0;
 }
 
+void	my_mlx_pixel_put(t_image *data, int x, int y, int color)
+{
+	char	*dst;
+
+	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
+		return ;
+	dst = data->data + (y * data->size_line + x * (data->bitsxpixel / 8));
+	*(unsigned int*)dst = color;
+}
+
 void	ft_mlx(t_fractol *fractol)
 {
 	int	i = 0;
@@ -53,17 +61,18 @@ void	ft_mlx(t_fractol *fractol)
 						&fractol->img->endian);
 	if (!(fractol->img->data))
 		ft_error(1);
-	//	put colours on window
-	while(i < WIN_WIDTH * WIN_HEIGHT * (fractol->img->bitsxpixel / 8))
-	{
-		fractol->img->data[i] = 0;
-		fractol->img->data[i + 1] = 0;
-		fractol->img->data[i + 2] = 255;
-
-		i += (fractol->img->bitsxpixel / 8);
-	}
+	ft_mlxplay(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	mlx_loop(fractol->mlx);
+}
+
+void	ft_mlxplay(t_fractol *fractol)
+{
+	while (fractol->x < WIN_WIDTH + 10)
+	{
+		my_mlx_pixel_put(fractol->img, fractol->x, 200, 0x000FF0FF);
+		fractol->x++;
+	}
 }
 
 void	ft_check(int ac, char **av, t_fractol *fractol)
