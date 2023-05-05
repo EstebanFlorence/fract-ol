@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/03 18:08:04 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:43:15 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void	ft_innit(t_fractol *fractol)
 	fractol->y_max = 2.0;
 }
 
-void	my_mlx_pixel_put(t_image *data, int x, int y, int color)
+//	Colora un singolo pixel. NB: img->data
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
 	char	*dst;
 
 	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
 		return ;
-	dst = data->data + (y * data->size_line + x * (data->bitsxpixel / 8));
+	dst = img->data + (y * img->size_line + x * (img->bitsxpixel / 8));
 	*(unsigned int*)dst = color;
 }
 
@@ -68,9 +69,9 @@ void	ft_mlx(t_fractol *fractol)
 
 void	ft_mlxplay(t_fractol *fractol)
 {
-	while (fractol->x < WIN_WIDTH + 10)
+	while (fractol->x < WIN_WIDTH)
 	{
-		my_mlx_pixel_put(fractol->img, fractol->x, 200, 0x000FF0FF);
+		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x000FF0FF);
 		fractol->x++;
 	}
 }

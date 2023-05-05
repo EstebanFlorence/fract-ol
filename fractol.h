@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/03 18:05:41 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:37:56 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_mandelbrot();
 void	ft_julia();
 void	ft_yarrr();
 
-void	my_mlx_pixel_put(t_image *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);
 
 #endif
