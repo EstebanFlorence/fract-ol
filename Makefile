@@ -6,13 +6,17 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/05/07 01:22:26 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/05/07 01:54:07 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fractol
 
-SRCS	=	fractol.c tools.c mandelbrot.c hooker.c
+SRC_DIR	=	src
+
+OBJ_DIR	=	obj
+
+SRCS    =   $(wildcard $(SRC_DIR)/*.c)
 
 OBJS	=	$(addprefix obj/,$(notdir $(SRCS:.c=.o)))
 
@@ -20,7 +24,7 @@ CC		=	gcc
 
 RM		=	rm -rf
 
-FLAGS	=	-g -Ilibft/include/ #-Wall -Wextra -Werror 
+FLAGS	=	-g -Iinclude/ -Ilibft/include/ #-Wall -Wextra -Werror 
 
 LIB		=	libft
 
@@ -33,7 +37,12 @@ YELLOW		= \033[1;33m
 BLUE		= \033[1;34m
 CYAN 		= \033[1;36m
 
-${NAME}:	objs ${OBJS}
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+			@mkdir -p $(OBJ_DIR)
+			@$(CC) $(FLAGS) -c $< -o $@
+
+${NAME}:	${OBJS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(LIB) ${CLR_RMV}..."
 			@make -sC ./libft
 			@echo "$(GREEN)$(LIB) created[0m ✔️"
@@ -47,9 +56,6 @@ ${NAME}:	objs ${OBJS}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}
-
-obj/%.o:	%.c
-			@${CC} ${FLAGS} -c $< -o $@
 
 objs:
 			@mkdir -p obj

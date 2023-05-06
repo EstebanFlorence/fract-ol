@@ -6,16 +6,16 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/07 01:13:52 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:36:31 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include "key.h"
-# include "libft/include/libft.h"
-# include "libft/include/ft_printf.h"
-# include "minilibx-linux/mlx.h"
+# include "../libft/include/libft.h"
+# include "../libft/include/ft_printf.h"
+# include "../minilibx-linux/mlx.h"
 
 # define MAX_ITER	200
 # define WIN_WIDTH 	500
