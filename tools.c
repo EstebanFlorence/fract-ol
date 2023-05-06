@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/06 23:31:07 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 00:29:24 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	ft_error(int n)
 		exit(EXIT_SUCCESS);
 	}
     if (n == 1)
-		perror("mlx() error");
+		perror("mlx error");
+	if (n == 2)
+		perror("hook error");
 	exit(EXIT_FAILURE);
 }
 
@@ -45,9 +47,20 @@ void	ft_coordinates(t_fractol *fractol)
 	fractol->zy = 0;
 }
 
-void	color(int iter)
+//	In the get_color function, (iter * 255 / MAX_ITER) << 16 means 
+//	that the binary representation of (iter * 255 / MAX_ITER) 
+//	is shifted 16 bits to the left. The result is a color value 
+//	where the first 8 bits (from the left) represent the red component,
+//	the second 8 bits represent the green component, and 
+//	the last 8 bits represent the blue component.
+int	color(int iter)
 {
+	int	color;
 
+	color = (iter * 255 / MAX_ITER) << 16;
+	color += (iter * 255 / MAX_ITER) << 8;
+	color += (iter * 255 / MAX_ITER);
+	return (color);
 }
 
 

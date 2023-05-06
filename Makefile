@@ -6,13 +6,13 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/05/06 16:35:25 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/05/07 00:19:45 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fractol
 
-SRCS	=	fractol.c	tools.c	mandelbrot.c
+SRCS	=	fractol.c tools.c mandelbrot.c hookers.c
 
 OBJS	=	$(addprefix obj/,$(notdir $(SRCS:.c=.o)))
 
@@ -58,7 +58,7 @@ clean:
 			@ echo "$(RED)Deleting $(CYAN)$(LIB) $(CLR_RMV) objs ✔️"
 			@make clean -C ./libft
 
-			@ echo "$(RED)Deleting $(CYAN)$(LIBX) $(CLR_RMV) objs ✔️"
+			@ echo "$(RED)fclean $(CYAN)$(LIBX) ✔️"
 			@make clean -C ./minilibx-linux
 
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"

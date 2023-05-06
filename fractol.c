@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/06 23:18:20 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 00:24:30 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	ft_fractol(t_fractol *fractol)
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	ft_mlxhooks(fractol);
 	mlx_loop(fractol->mlx);
-}
-
-void	ft_mlxhooks(t_fractol *fractol)
-{
-  
 }
 
 void	ft_structinnit(t_fractol *fractol)
