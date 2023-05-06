@@ -6,13 +6,13 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/05/07 00:19:45 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/05/07 01:22:26 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fractol
 
-SRCS	=	fractol.c tools.c mandelbrot.c hookers.c
+SRCS	=	fractol.c tools.c mandelbrot.c hooker.c
 
 OBJS	=	$(addprefix obj/,$(notdir $(SRCS:.c=.o)))
 

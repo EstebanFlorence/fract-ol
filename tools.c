@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 00:29:24 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:29:42 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_check(int ac, char **av, t_fractol *fractol)
 {
 	if (ac != 2)
 		ft_error(0);
+	fractol->fractal = NULL;
 	if (ft_strncmp(av[1], "Mandelbrot", 11) && \
 		ft_strncmp(av[1], "Julia", 6) && \
 		ft_strncmp(av[1], "Burningship", 12))
 		ft_error(0);
 	fractol->fractal = av[1];
-
 }
 
 void	ft_error(int n)
@@ -53,6 +53,7 @@ void	ft_coordinates(t_fractol *fractol)
 //	where the first 8 bits (from the left) represent the red component,
 //	the second 8 bits represent the green component, and 
 //	the last 8 bits represent the blue component.
+
 int	color(int iter)
 {
 	int	color;
@@ -65,6 +66,7 @@ int	color(int iter)
 
 
 //	Colora un singolo pixel. NB: img->data
+
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
 	char	*dst;

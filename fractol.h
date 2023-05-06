@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/07 00:27:26 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:13:52 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ typedef struct s_fractol
 	double	zy;
 	double	cx;
 	double	cy;
-	int		iter;
+	double	iter;
+	double	max_iter;
 
 	double	zoom;
 	
@@ -69,5 +70,8 @@ int		color(int iter);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);
 void	ft_mlxhooks(t_fractol *fractol);
+
+int		zoom_hook(int button, int x, int y, t_fractol *fractol);
+int		key_hook(int key, t_fractol *fractol);
 
 #endif

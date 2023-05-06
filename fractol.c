@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 00:24:30 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:31:03 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_fractol(t_fractol *fractol)
 		ft_julia();
 	else if (fractol->fractal == "Burningship")
 		ft_yarrr();
-
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	ft_mlxhooks(fractol);
 	mlx_loop(fractol->mlx);
@@ -34,8 +33,14 @@ void	ft_structinnit(t_fractol *fractol)
 	fractol->y = 0;
 	fractol->y_min = -2.0;
 	fractol->y_max = 2.0;
-	fractol->zoom = MAX_ITER;
+	fractol->zx = 0;
+	fractol->zy = 0;
+/* 	fractol->cx = 0;
+	fractol->cy = 0; */
 	fractol->iter = 0;
+	fractol->max_iter = MAX_ITER;
+	fractol->zoom = MAX_ITER;
+
 }
 
 void	ft_mlxinnit(t_fractol *fractol)
