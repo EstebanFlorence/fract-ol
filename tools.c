@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/04/30 14:28:28 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/06 18:17:16 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_error(int n)
 {
 	if (n == 0)
 	{
-		ft_printf("usage: ./fractol <fractal>\nFractals available:\n");
-		ft_printf("> Mandelbrot\n> Julia\n> Burningship\n");
+		ft_printf("usage: ./fractol <fractal>\n\nFractals available:\n");
+		ft_printf("> Mandelbrot\n> Julia\n> Burningship\n\n");
 		exit(EXIT_SUCCESS);
 	}
     if (n == 1)
@@ -25,9 +25,10 @@ void	ft_error(int n)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_mandelbrot()
+int	key_hook(int key, t_fractol *fractol)
 {
-	ft_printf("Mandelbrot\n");
+	ft_printf("KEY HOOK!\n");
+	return (0);
 }
 
 void	ft_julia()
@@ -38,4 +39,13 @@ void	ft_julia()
 void	ft_yarrr()
 {
 	ft_printf("Burning Ship\n");
+}
+
+void	ft_mlxplay(t_fractol *fractol)
+{
+	while (fractol->x < WIN_WIDTH)
+	{
+		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x000FF0FF);
+		fractol->x++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/05 16:37:56 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:54:30 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_fractol
     double	x_max;
     double	y_min;
     double	y_max;
+	double	zx;
+	double	zy;
+	double	cx;
+	double	cy;
+	int		iter;
+
 	double	zoom;
 	
 	t_image	*img;
@@ -49,13 +55,14 @@ typedef struct s_fractol
 
 void	ft_fractol(t_fractol *fractol);
 void	ft_check(int ac, char **av, t_fractol *fractol);
-void	ft_mlx(t_fractol *fractol);
-void	ft_innit(t_fractol *fractol);
+void	ft_mlxinnit(t_fractol *fractol);
+void	ft_structinnit(t_fractol *fractol);
 void	ft_error(int n);
 
-void	ft_mandelbrot();
+void	ft_mandelbrot(t_fractol *fractol);
 void	ft_julia();
 void	ft_yarrr();
+void	ft_fractolinnit(t_fractol *fractol);
 
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);

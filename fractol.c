@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/05 16:43:15 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/06 18:15:28 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	ft_fractol(t_fractol *fractol)
 {
 	if (fractol->fractal == "Mandelbrot")
-		ft_mandelbrot();
+		ft_mandelbrot(fractol);
 	else if (fractol->fractal == "Julia")
 		ft_julia();
 	else if (fractol->fractal == "Burningship")
 		ft_yarrr();
 }
 
-void	ft_innit(t_fractol *fractol)
+void	ft_structinnit(t_fractol *fractol)
 {
 	fractol->x = 0;
 	fractol->x_min = -2.0;
@@ -30,6 +30,8 @@ void	ft_innit(t_fractol *fractol)
 	fractol->y = 0;
 	fractol->y_min = -2.0;
 	fractol->y_max = 2.0;
+	fractol->zoom = MAX_ITER;
+	fractol->iter = 0;
 }
 
 //	Colora un singolo pixel. NB: img->data
@@ -43,7 +45,7 @@ void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	ft_mlx(t_fractol *fractol)
+void	ft_mlxinnit(t_fractol *fractol)
 {
 	int	i = 0;
 	
@@ -62,18 +64,10 @@ void	ft_mlx(t_fractol *fractol)
 						&fractol->img->endian);
 	if (!(fractol->img->data))
 		ft_error(1);
-	ft_mlxplay(fractol);
+	ft_fractol(fractol);
+	//ft_mlxplay(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	mlx_loop(fractol->mlx);
-}
-
-void	ft_mlxplay(t_fractol *fractol)
-{
-	while (fractol->x < WIN_WIDTH)
-	{
-		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x000FF0FF);
-		fractol->x++;
-	}
 }
 
 void	ft_check(int ac, char **av, t_fractol *fractol)
@@ -88,21 +82,15 @@ void	ft_check(int ac, char **av, t_fractol *fractol)
 
 }
 
-int	key_hook(int key, t_fractol *fractol)
-{
-	ft_printf("KEY HOOK!\n");
-	return (0);
-}
-
 int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
 	fractol.img = malloc(sizeof(t_image));
 	ft_check(ac, av, &fractol);
-	ft_mlx(&fractol);
-	//ft_innit(&fractol);
-	//ft_fractol(&fractol);
+	ft_mlxinnit(&fractol);
+	ft_fractol(&fractol);
+	//ft_structinnit(&fractol);
 
 	return (0);
 }
