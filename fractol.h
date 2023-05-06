@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/06 17:54:30 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/06 23:34:36 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ void	ft_mlxinnit(t_fractol *fractol);
 void	ft_structinnit(t_fractol *fractol);
 void	ft_error(int n);
 
+void	ft_benoit(t_fractol *fractol);
 void	ft_mandelbrot(t_fractol *fractol);
 void	ft_julia();
 void	ft_yarrr();
-void	ft_fractolinnit(t_fractol *fractol);
 
+void	ft_coordinates(t_fractol *fractol);
+void	color(int iter);
 void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);
+void	ft_mlxhooks(t_fractol *fractol);
 
 #endif
