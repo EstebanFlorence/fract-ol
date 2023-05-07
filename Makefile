@@ -6,7 +6,7 @@
 #    By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 19:11:52 by adi-nata          #+#    #+#              #
-#    Updated: 2023/05/07 01:54:07 by adi-nata         ###   ########.fr        #
+#    Updated: 2023/05/07 01:55:19 by adi-nata         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC		=	gcc
 
 RM		=	rm -rf
 
-FLAGS	=	-g -Iinclude/ -Ilibft/include/ #-Wall -Wextra -Werror 
+FLAGS	=	-g -Iinclude/ -Ilibft/include/ -Wall -Wextra -Werror 
 
 LIB		=	libft
 

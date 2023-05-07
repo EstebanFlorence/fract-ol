@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/07 01:36:31 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 02:01:18 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_image
 
 typedef struct s_fractol
 {
-	char	*fractal;
+	int		fractal;
     void	*mlx;
 	void	*win;
     double	x;

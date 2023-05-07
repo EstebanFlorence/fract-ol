@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 01:31:03 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 02:02:11 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_fractol(t_fractol *fractol)
 {
-	if (fractol->fractal == "Mandelbrot")
+	if (fractol->fractal == 1)
 		ft_benoit(fractol);
-	else if (fractol->fractal == "Julia")
+	else if (fractol->fractal == 2)
 		ft_julia();
-	else if (fractol->fractal == "Burningship")
+	else if (fractol->fractal == 3)
 		ft_yarrr();
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	ft_mlxhooks(fractol);
@@ -45,12 +45,10 @@ void	ft_structinnit(t_fractol *fractol)
 
 void	ft_mlxinnit(t_fractol *fractol)
 {
-	int	i = 0;
-	
 	fractol->mlx = mlx_init();
 	if (!(fractol->mlx))
 		ft_error(1);
-	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, fractol->fractal);
+	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, "Work in progress");
 	if (!(fractol->win))
 		ft_error(1);
 
