@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/07 02:01:18 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:32:47 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "../minilibx-linux/mlx.h"
 
 # define MAX_ITER	200
-# define WIN_WIDTH 	500
-# define WIN_HEIGHT 500
+# define WIN_WIDTH 	1000
+# define WIN_HEIGHT 1000
 
 typedef struct s_image
 {
