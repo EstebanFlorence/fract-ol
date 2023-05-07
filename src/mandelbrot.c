@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:20:32 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/06 23:33:09 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:28:03 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_mandelbrot(t_fractol *fractol)
 	double	tmpx;
 
 	ft_coordinates(fractol);
+	fractol->iter = 0;
 	while ((fractol->zx * fractol->zx + fractol->zy * fractol->zy < 4) && fractol->iter < MAX_ITER)
 	{
 		tmpx = fractol->zx * fractol->zx - fractol->zy * fractol->zy + fractol->cx;
@@ -25,7 +26,7 @@ void	ft_mandelbrot(t_fractol *fractol)
 		fractol->iter++;
 	}
 	if (fractol->iter < MAX_ITER)
-		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, color(fractol->iter));
+		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0xFF66B0F0 / fractol->iter);
 	else
 		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x00000000);
 }
@@ -34,6 +35,7 @@ void	ft_benoit(t_fractol *fractol)
 {
 	while (fractol->y < WIN_HEIGHT)
 	{
+		fractol->x = 0;
 		while (fractol->x < WIN_WIDTH)
 		{
 			ft_mandelbrot(fractol);

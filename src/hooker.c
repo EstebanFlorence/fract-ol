@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 01:24:11 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/07 16:38:29 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	key_hook(int key, t_fractol *fractol)
 		fractol->color -= 0x010101;
 	else if (key == MAG_KEY)
 		fractol->color += 0x010101; */
+	ft_printf("key hook\n");
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	return (0);
 }
@@ -68,6 +69,7 @@ int	zoom_hook(int button, int x, int y, t_fractol *fractol)
 		fractol->y_max += (y / fractol->zoom) / 2;
 		fractol->zoom /= 1.1;
 	}
+	ft_printf("mouse hook\n");
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	return (0);
 }
