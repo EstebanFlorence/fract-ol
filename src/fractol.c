@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 18:14:48 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 00:26:24 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	ft_fractol(t_fractol *fractol)
 	else if (fractol->fractal == 3)
 		ft_yarrr();
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
-	//ft_mlxhooks(fractol);
-	mlx_loop(fractol->mlx);
 }
 
 void	ft_structinnit(t_fractol *fractol)
@@ -33,10 +31,6 @@ void	ft_structinnit(t_fractol *fractol)
 	fractol->y = -1;
 	fractol->y_min = -2.0;
 	fractol->y_max = 2.0;
-	fractol->zx = 0;
-	fractol->zy = 0;
-/* 	fractol->cx = 0;
-	fractol->cy = 0; */
 	fractol->iter = 0;
 	fractol->max_iter = MAX_ITER;
 	fractol->zoom = MAX_ITER;
@@ -51,8 +45,6 @@ void	ft_mlxinnit(t_fractol *fractol)
 	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, "Work in progress");
 	if (!(fractol->win))
 		ft_error(1);
-
-		
 	fractol->img->ptr = mlx_new_image(fractol->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!(fractol->img))
 		ft_error(1);
@@ -74,8 +66,9 @@ int	main(int ac, char **av)
 	ft_mlxinnit(&fractol);
 	ft_structinnit(&fractol);
 	ft_fractol(&fractol);
-	
+	ft_mlxhooks(&fractol);
 
+	free(fractol.img);
 	return (0);
 }
 

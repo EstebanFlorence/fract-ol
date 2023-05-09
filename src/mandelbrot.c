@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:20:32 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 18:28:03 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:51:06 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_mandelbrot(t_fractol *fractol)
 		fractol->iter++;
 	}
 	if (fractol->iter < MAX_ITER)
-		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0xFF66B0F0 / fractol->iter);
+		ft_pixelput(fractol->img, fractol->x, fractol->y, 0xFF66B0F0 / fractol->iter);
 	else
-		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x00000000);
+		ft_pixelput(fractol->img, fractol->x, fractol->y, 0x00000000);
 }
 
 void	ft_benoit(t_fractol *fractol)

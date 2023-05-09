@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/07 18:32:47 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:42:38 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ typedef struct s_fractol
 	double	cy;
 	double	iter;
 	double	max_iter;
-
 	double	zoom;
-	
 	t_image	*img;
 }	t_fractol;
 
@@ -67,7 +65,7 @@ void	ft_yarrr();
 
 void	ft_coordinates(t_fractol *fractol);
 int		color(int iter);
-void	my_mlx_pixel_put(t_image *img, int x, int y, int color);
+void	ft_pixelput(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);
 void	ft_mlxhooks(t_fractol *fractol);
 

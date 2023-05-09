@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 16:38:29 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/09 23:50:18 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 void	ft_mlxhooks(t_fractol *fractol)
 {
-	if (!mlx_hook(fractol->win, 2, 1L<<0, key_hook, fractol))
-		ft_error(2);
-	if (!mlx_hook(fractol->win, 4, 1L<<2, zoom_hook, fractol))
-		ft_error(2);
+	mlx_hook(fractol->win, 2, 1L<<0, key_hook, fractol);
+	mlx_hook(fractol->win, 4, 1L<<2, zoom_hook, fractol);
+	mlx_loop(fractol->mlx);
+
 }
 
 int	key_hook(int key, t_fractol *fractol)
@@ -42,15 +42,15 @@ int	key_hook(int key, t_fractol *fractol)
 		fractol->zoom *= 1.1;
 	else if (key == E_KEY)
 		fractol->zoom /= 1.1;
-	else if (key == R_KEY)
-		fractol->max_iter += 10;
-	else if (key == T_KEY)
-		fractol->max_iter -= 10;
-/* 	else if (key == MIN_KEY)
-		fractol->color -= 0x010101;
-	else if (key == MAG_KEY)
-		fractol->color += 0x010101; */
-	ft_printf("key hook\n");
+
+	printf("key : %d\n", key);
+	printf("y min : %f\n", fractol->y_min);
+	printf("y max : %f\n", fractol->y_max);
+	printf("x min : %f\n", fractol->x_min);
+	printf("x max : %f\n", fractol->x_max);
+	printf("zoom : %f\n", fractol->zoom);
+
+	ft_fractol(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	return (0);
 }
@@ -69,7 +69,13 @@ int	zoom_hook(int button, int x, int y, t_fractol *fractol)
 		fractol->y_max += (y / fractol->zoom) / 2;
 		fractol->zoom /= 1.1;
 	}
-	ft_printf("mouse hook\n");
+
+/* 	printf("button : %d\n", button);
+	printf("y max : %f\n", fractol->y_max);
+	printf("x min : %f\n", fractol->x_min);
+	printf("zoom : %f\n", fractol->zoom); */
+
+	ft_fractol(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
 	return (0);
 }

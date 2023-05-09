@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:50:42 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/03 17:51:16 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:44:13 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # define B_ESC 65307
 # define MIN_KEY 45
 # define MAG_KEY 61
+
+# define ARROW_LEFT 65361
+# define ARROW_UP 65362
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
 
 # define W_KEY 119
 # define A_KEY 97

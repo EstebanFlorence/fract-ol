@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/07 17:56:49 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:49:35 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void	ft_coordinates(t_fractol *fractol)
 
 int	color(int iter)
 {
-	int	color;
+	unsigned int	color;
 
-	color = (iter * 255 / MAX_ITER) << 16;
+	color = 0xFF66B0F0;
+	color += (iter * 255 / MAX_ITER) << 16;
 	color += (iter * 255 / MAX_ITER) << 8;
 	color += (iter * 255 / MAX_ITER);
 	return (color);
@@ -69,7 +70,7 @@ int	color(int iter)
 
 //	Colora un singolo pixel. NB: img->data
 
-void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
+void	ft_pixelput(t_image *img, int x, int y, int color)
 {
 	char	*dst;
 
@@ -98,7 +99,7 @@ void	ft_mlxplay(t_fractol *fractol)
 {
 	while (fractol->x < WIN_WIDTH)
 	{
-		my_mlx_pixel_put(fractol->img, fractol->x, fractol->y, 0x000FF0FF);
+		ft_pixelput(fractol->img, fractol->x, fractol->y, 0x000FF0FF);
 		fractol->x++;
 	}
 }
