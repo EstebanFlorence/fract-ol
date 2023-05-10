@@ -6,13 +6,14 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/10 16:44:02 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:22:37 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include "key.h"
+# include <math.h>
 # include "../libft/include/libft.h"
 # include "../libft/include/ft_printf.h"
 # include "../minilibx-linux/mlx.h"
@@ -63,7 +64,9 @@ void	ft_benoit(t_fractol *fractol);
 void	ft_mandelbrot(t_fractol *fractol);
 void	ft_gaston(t_fractol *fractol);
 void	ft_julia(t_fractol *fractol);
-void	ft_yarrr();
+void	ft_yarrr(t_fractol *fracol);
+void	ft_burningship(t_fractol *fractol);
+
 
 void	ft_coordinates(t_fractol *fractol);
 int		color(int iter);

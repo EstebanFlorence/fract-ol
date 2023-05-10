@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 12:20:32 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 18:55:19 by adi-nata         ###   ########.fr       */
+/*   Created: 2023/05/10 19:15:14 by adi-nata          #+#    #+#             */
+/*   Updated: 2023/05/10 19:19:52 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_mandelbrot(t_fractol *fractol)
+void	ft_burningship(t_fractol *fractol)
 {
 	double	tmpx;
 
@@ -21,8 +21,8 @@ void	ft_mandelbrot(t_fractol *fractol)
 	while ((fractol->zx * fractol->zx + fractol->zy * fractol->zy < 4) && fractol->iter < MAX_ITER)
 	{
 		tmpx = fractol->zx * fractol->zx - fractol->zy * fractol->zy + fractol->cx;
-		fractol->zy = 2 * fractol->zx * fractol->zy + fractol->cy;
-		fractol->zx = tmpx;
+		fractol->zy = 2 * fabs(fractol->zx * fractol->zy) + fractol->cy;
+		fractol->zx = fabs(tmpx);
 		fractol->iter++;
 	}
 	if (fractol->iter < MAX_ITER)
@@ -31,14 +31,14 @@ void	ft_mandelbrot(t_fractol *fractol)
 		ft_pixelput(fractol->img, fractol->x, fractol->y, 0x00000000);
 }
 
-void	ft_benoit(t_fractol *fractol)
+void	ft_yarrr(t_fractol *fractol)
 {
 	while (fractol->y < WIN_HEIGHT)
 	{
 		fractol->x = 0;
 		while (fractol->x < WIN_WIDTH)
 		{
-			ft_mandelbrot(fractol);
+			ft_burningship(fractol);
 			fractol->x++;
 		}
 		fractol->y++;
