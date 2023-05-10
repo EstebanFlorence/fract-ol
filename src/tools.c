@@ -6,17 +6,26 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/08 23:49:35 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:22:50 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	ft_checkjulia(int ac, char **av, t_fractol *fractol)
+{
+	if (ac != 4)
+		ft_error(1);
+	fractol->cx = ft_atof(av[2]);
+	fractol->cy = ft_atof(av[3]);
+	if (fractol->cx < -2 || fractol->cx > 2 || \
+		fractol->cy < -2 || fractol->cy > 2)
+		ft_error(1);
+}
+
 void	ft_check(int ac, char **av, t_fractol *fractol)
 {
-	if (ac != 2)
-		ft_error(0);
-	if (!ft_strncmp(av[1], "Mandelbrot", 11))
+	if (!ft_strncmp(av[1], "Mandelbrot", 11) && ac == 2)
 	fractol->fractal = 1;
 	else if	(!ft_strncmp(av[1], "Julia", 6))
 	fractol->fractal = 2;
@@ -24,19 +33,31 @@ void	ft_check(int ac, char **av, t_fractol *fractol)
 	fractol->fractal = 3;
 	else
 		ft_error(0);
+	if (fractol->fractal == 2)
+		ft_checkjulia(ac, av, fractol);
 }
 
 void	ft_error(int n)
 {
 	if (n == 0)
 	{
-		ft_printf("usage: ./fractol <fractal>\n\nFractals available:\n");
+		ft_printf("\nusage: ./fractol <fractal>\n\nFractals available:\n");
 		ft_printf("> Mandelbrot\n> Julia\n> Burningship\n\n");
 		exit(EXIT_SUCCESS);
 	}
-    if (n == 1)
+	if (n == 1)
+	{
+		ft_printf("\nusage: ./fractol Julia <c_real> <c_imaginary>\n");
+		ft_printf("\n<c_real> + <c_imaginary> = complex number between -2.000 and 2.000");
+		ft_printf("\n\nInstructions for <c_real> <c_imaginary>:\n");
+		ft_printf("\nPlease type two values separated by a space:\n");
+		ft_printf("\nExamples:\n\t> ./fractol Julia 0.123 0.321\n\t");
+		ft_printf("> ./fractol Julia 0 -0.700\n\t> ./fractol Julia -0.230 0.089\n");
+		exit(EXIT_SUCCESS);
+	}
+    if (n == 2)
 		perror("mlx error");
-	if (n == 2)
+	if (n == 3)
 		perror("hook error");
 	exit(EXIT_FAILURE);
 }

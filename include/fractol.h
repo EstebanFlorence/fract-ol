@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/08 23:42:38 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:20:00 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_fractol
 
 void	ft_fractol(t_fractol *fractol);
 void	ft_check(int ac, char **av, t_fractol *fractol);
+void	ft_checkjulia(int ac, char **av, t_fractol *fractol);
 void	ft_mlxinnit(t_fractol *fractol);
 void	ft_structinnit(t_fractol *fractol);
 void	ft_error(int n);
