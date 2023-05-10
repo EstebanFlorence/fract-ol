@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 15:22:50 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:48:51 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,18 @@ void	ft_error(int n)
 
 void	ft_coordinates(t_fractol *fractol)
 {
-	fractol->cx = fractol->x / fractol->zoom + fractol->x_min;
-	fractol->cy = fractol->y / fractol->zoom + fractol->y_min;
-	fractol->zx = 0;
-	fractol->zy = 0;
+	if (fractol->fractal == 2)
+	{
+		fractol->zx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->zy = fractol->y / fractol->zoom + fractol->y_min;
+	}
+	else
+	{
+		fractol->cx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->cy = fractol->y / fractol->zoom + fractol->y_min;
+		fractol->zx = 0;
+		fractol->zy = 0;
+	}
 }
 
 //	In the get_color function, (iter * 255 / MAX_ITER) << 16 means 
@@ -103,13 +111,6 @@ void	ft_pixelput(t_image *img, int x, int y, int color)
 
 
 
-
-
-
-void	ft_julia()
-{
-	ft_printf("Julia\n");
-}
 
 void	ft_yarrr()
 {

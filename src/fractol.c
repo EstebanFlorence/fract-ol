@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 15:04:58 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:41:31 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_fractol(t_fractol *fractol)
 	if (fractol->fractal == 1)
 		ft_benoit(fractol);
 	else if (fractol->fractal == 2)
-		ft_julia();
+		ft_gaston(fractol);
 	else if (fractol->fractal == 3)
 		ft_yarrr();
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/10 15:20:00 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:44:02 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	ft_error(int n);
 
 void	ft_benoit(t_fractol *fractol);
 void	ft_mandelbrot(t_fractol *fractol);
-void	ft_julia();
+void	ft_gaston(t_fractol *fractol);
+void	ft_julia(t_fractol *fractol);
 void	ft_yarrr();
 
 void	ft_coordinates(t_fractol *fractol);
