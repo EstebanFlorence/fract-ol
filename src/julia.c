@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:14:27 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 16:51:22 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:28:56 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,3 @@ void	ft_julia(t_fractol *fractol)
 		ft_pixelput(fractol->img, fractol->x, fractol->y, 0x00000000);
 }
 
-void	ft_gaston(t_fractol *fractol)
-{
-	while (fractol->y < WIN_HEIGHT)
-	{
-		fractol->x = 0;
-		while (fractol->x < WIN_WIDTH)
-		{
-			ft_julia(fractol);
-			fractol->x++;
-		}
-		fractol->y++;
-	}
-}
