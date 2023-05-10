@@ -6,21 +6,37 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 19:22:59 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:42:23 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	ft_matrix(t_fractol *fractol)
+{
+	while (fractol->y < WIN_HEIGHT)
+	{
+		fractol->x = 0;
+		while (fractol->x < WIN_WIDTH)
+		{
+			ft_fractol(fractol);
+			fractol->x++;
+		}
+		fractol->y++;
+	}
+	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
+}
+
 void	ft_fractol(t_fractol *fractol)
 {
 	if (fractol->fractal == 1)
-		ft_benoit(fractol);
+		ft_mandelbrot(fractol);
 	else if (fractol->fractal == 2)
-		ft_gaston(fractol);
+		ft_julia(fractol);
 	else if (fractol->fractal == 3)
-		ft_yarrr(fractol);
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
+		ft_yarr(fractol);
+/* 	else if (fractol->fractal == 4)
+		ft_isaac(fractol); */
 }
 
 void	ft_mlxinnit(t_fractol *fractol)
@@ -51,7 +67,7 @@ int	main(int ac, char **av)
 	ft_check(ac, av, &fractol);
 	ft_mlxinnit(&fractol);
 	ft_structinnit(&fractol);
-	ft_fractol(&fractol);
+	ft_matrix(&fractol);
 	ft_mlxhooks(&fractol);
 
 	free(fractol.img);

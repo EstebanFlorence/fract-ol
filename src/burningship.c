@@ -6,13 +6,13 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 19:15:14 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 19:19:52 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:42:08 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_burningship(t_fractol *fractol)
+void	ft_yarrr(t_fractol *fractol)
 {
 	double	tmpx;
 
@@ -29,18 +29,4 @@ void	ft_burningship(t_fractol *fractol)
 		ft_pixelput(fractol->img, fractol->x, fractol->y, 0xFF66B0F0 / fractol->iter);
 	else
 		ft_pixelput(fractol->img, fractol->x, fractol->y, 0x00000000);
-}
-
-void	ft_yarrr(t_fractol *fractol)
-{
-	while (fractol->y < WIN_HEIGHT)
-	{
-		fractol->x = 0;
-		while (fractol->x < WIN_WIDTH)
-		{
-			ft_burningship(fractol);
-			fractol->x++;
-		}
-		fractol->y++;
-	}
 }

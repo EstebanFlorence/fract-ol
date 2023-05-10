@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 19:24:33 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:30:47 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_check(int ac, char **av, t_fractol *fractol)
 	fractol->fractal = 2;
 	else if	(!ft_strncmp(av[1], "Burningship", 12))
 	fractol->fractal = 3;
+	else if	(!ft_strncmp(av[1], "Newton", 7))
+	fractol->fractal = 4;
 	else
 		ft_error(0);
 	if (fractol->fractal == 2)
