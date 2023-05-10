@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 18:50:48 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:08:18 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	key_hook(int key, t_fractol *fractol)
 
 
 	printf("key : %d\n", key);
-	printf("y min : %f\n", fractol->y_min);
+/* 	printf("y min : %f\n", fractol->y_min);
 	printf("y max : %f\n", fractol->y_max);
 	printf("x min : %f\n", fractol->x_min);
-	printf("x max : %f\n", fractol->x_max);
-	printf("zoom : %f\n", fractol->zoom);
+	printf("x max : %f\n", fractol->x_max);*/
+	printf("zoom : %f\n", fractol->zoom); 
 
 	//ft_fractol(fractol);
 	return (0);
@@ -46,28 +46,37 @@ int	key_hook(int key, t_fractol *fractol)
 
 int	zoom_hook(int button, int x, int y, t_fractol *fractol)
 {
-	double	tmpx;
-	double	tmpy;
+	double	old_x;
+	double	old_y;
+	double	new_x;
+	double	new_y;
 
-	tmpx = x / fractol->zoom + fractol->x_min;
-	tmpy = y / fractol->zoom + fractol->y_min;
+	old_x = fractol->x_max - fractol->x_min;
+	old_y = fractol->y_max - fractol->y_min;
+
 	if (button == ROT_UP)
 	{
-		fractol->zoom *= 1.1;
+		new_x = old_x / 1.1;
+		new_y = old_y / 1.1;
 	}
 	else if (button == ROT_DOWN)
 	{
-		fractol->zoom /= 1.1;
+		new_x = old_x * 1.1;
+		new_y = old_y * 1.1;
 	}
-	fractol->x_min = tmpx - (x / fractol->zoom);
-	fractol->y_min = tmpy - (y / fractol->zoom);
+	else
+		return (0);
+	fractol->x_min = fractol->x_min + ((old_x - new_x) / 2) - (x / fractol->zoom);
+	fractol->x_max = fractol->x_min + new_x;
+	fractol->y_min = fractol->y_min + ((old_y - new_y) / 2) - (y / fractol->zoom);
+	fractol->y_max = fractol->y_min + new_y;
 
 	printf("button : %d\n", button);
-	printf("y max : %f\n", fractol->y_max);
-	printf("x min : %f\n", fractol->x_min);
-	printf("zoom : %f\n", fractol->zoom);
+	printf("x : %d\n", x);
+	printf("y : %d\n", y);
+	printf("zoom : %f\n", fractol->zoom); 
 
-	ft_fractol(fractol);
+	ft_matrix(fractol);
 	return (0);
 }
 

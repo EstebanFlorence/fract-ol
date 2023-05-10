@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 19:42:23 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:15:14 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_fractol(t_fractol *fractol)
 	else if (fractol->fractal == 2)
 		ft_julia(fractol);
 	else if (fractol->fractal == 3)
-		ft_yarr(fractol);
+		ft_yarrr(fractol);
 /* 	else if (fractol->fractal == 4)
 		ft_isaac(fractol); */
 }
@@ -44,7 +44,7 @@ void	ft_mlxinnit(t_fractol *fractol)
 	fractol->mlx = mlx_init();
 	if (!(fractol->mlx))
 		ft_error(2);
-	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, "Work in progress");
+	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract-ol");
 	if (!(fractol->win))
 		ft_error(2);
 	fractol->img->ptr = mlx_new_image(fractol->mlx, WIN_WIDTH, WIN_HEIGHT);

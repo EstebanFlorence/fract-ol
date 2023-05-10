@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 19:30:47 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:25:46 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,21 @@ void	ft_checkjulia(int ac, char **av, t_fractol *fractol)
 	if (fractol->cx < -2 || fractol->cx > 2 || \
 		fractol->cy < -2 || fractol->cy > 2)
 		ft_error(1);
+	fractol->fractal = 2;
 }
 
 void	ft_check(int ac, char **av, t_fractol *fractol)
 {
 	if (!ft_strncmp(av[1], "Mandelbrot", 11) && ac == 2)
-	fractol->fractal = 1;
+		fractol->fractal = 1;
 	else if	(!ft_strncmp(av[1], "Julia", 6))
-	fractol->fractal = 2;
+		ft_checkjulia(ac, av, fractol);
 	else if	(!ft_strncmp(av[1], "Burningship", 12))
-	fractol->fractal = 3;
+		fractol->fractal = 3;
 	else if	(!ft_strncmp(av[1], "Newton", 7))
-	fractol->fractal = 4;
+		fractol->fractal = 4;
 	else
 		ft_error(0);
-	if (fractol->fractal == 2)
-		ft_checkjulia(ac, av, fractol);
 }
 
 void	ft_error(int n)
@@ -51,10 +50,10 @@ void	ft_error(int n)
 	{
 		ft_printf("\nusage: ./fractol Julia <c_real> <c_imaginary>\n");
 		ft_printf("\n<c_real> + <c_imaginary> = complex number between -2.000 and 2.000");
-		ft_printf("\n\nInstructions for <c_real> <c_imaginary>:\n");
 		ft_printf("\nPlease type two values separated by a space:\n");
+		//ft_printf("");
 		ft_printf("\nExamples:\n\t> ./fractol Julia 0.123 0.321\n\t");
-		ft_printf("> ./fractol Julia 0 -0.700\n\t> ./fractol Julia -0.230 0.089\n");
+		ft_printf("> ./fractol Julia 0 -0.700\n\t> ./fractol Julia -0.230 0.089\n\n");
 		exit(EXIT_SUCCESS);
 	}
     if (n == 2)
@@ -80,6 +79,23 @@ void	ft_coordinates(t_fractol *fractol)
 	}
 
 }
+
+/* void	ft_coordinates(t_fractol *fractol)
+{
+	if (fractol->fractal == 1 || fractol->fractal == 3)
+	{
+		fractol->cx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->cy = fractol->y / fractol->zoom + fractol->y_min;
+		fractol->zx = 0;
+		fractol->zy = 0;
+	}
+	if (fractol->fractal == 2)
+	{
+		fractol->zx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->zy = fractol->y / fractol->zoom + fractol->y_min;
+	}
+
+} */
 
 //	In the get_color function, (iter * 255 / MAX_ITER) << 16 means 
 //	that the binary representation of (iter * 255 / MAX_ITER) 
