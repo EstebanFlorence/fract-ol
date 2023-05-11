@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 23:25:46 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/11 13:57:59 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,6 @@ void	ft_error(int n)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_coordinates(t_fractol *fractol)
-{
-	if (fractol->fractal == 1 || fractol->fractal == 3)
-	{
-		fractol->cx = fractol->x / fractol->zoom + fractol->x_min;
-		fractol->cy = fractol->y / fractol->zoom + fractol->y_min;
-		fractol->zx = 0;
-		fractol->zy = 0;
-	}
-	if (fractol->fractal == 2)
-	{
-		fractol->zx = fractol->x / fractol->zoom + fractol->x_min;
-		fractol->zy = fractol->y / fractol->zoom + fractol->y_min;
-	}
-
-}
-
 /* void	ft_coordinates(t_fractol *fractol)
 {
 	if (fractol->fractal == 1 || fractol->fractal == 3)
@@ -96,6 +79,23 @@ void	ft_coordinates(t_fractol *fractol)
 	}
 
 } */
+
+void	ft_coordinates(t_fractol *fractol)
+{
+	if (fractol->fractal == 1 || fractol->fractal == 3)
+	{
+		fractol->cx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->cy = fractol->y / fractol->zoom + fractol->y_min;
+		fractol->zx = 0;
+		fractol->zy = 0;
+	}
+	if (fractol->fractal == 2)
+	{
+		fractol->zx = fractol->x / fractol->zoom + fractol->x_min;
+		fractol->zy = fractol->y / fractol->zoom + fractol->y_min;
+	}
+
+}
 
 //	In the get_color function, (iter * 255 / MAX_ITER) << 16 means 
 //	that the binary representation of (iter * 255 / MAX_ITER) 
@@ -138,7 +138,7 @@ void	ft_structinnit(t_fractol *fractol)
 	fractol->y_max = 2.0;
 	fractol->iter = 0;
 	fractol->max_iter = MAX_ITER;
-	fractol->zoom = MAX_ITER;
+	fractol->zoom = MAX_ITER/*  * 2 */;
 
 }
 

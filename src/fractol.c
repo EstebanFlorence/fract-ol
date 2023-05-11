@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 23:15:14 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:15:07 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_matrix(t_fractol *fractol)
 {
+	fractol->y = 0;
 	while (fractol->y < WIN_HEIGHT)
 	{
 		fractol->x = 0;
