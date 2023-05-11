@@ -6,13 +6,13 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/11 14:15:07 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:13:41 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_matrix(t_fractol *fractol)
+void	ft_rendering(t_fractol *fractol)
 {
 	fractol->y = 0;
 	while (fractol->y < WIN_HEIGHT)
@@ -25,7 +25,8 @@ void	ft_matrix(t_fractol *fractol)
 		}
 		fractol->y++;
 	}
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img->ptr, 0, 0);
+	mlx_put_image_to_window(fractol->mlx, \
+		fractol->win, fractol->img->ptr, 0, 0);
 }
 
 void	ft_fractol(t_fractol *fractol)
@@ -45,7 +46,8 @@ void	ft_mlxinnit(t_fractol *fractol)
 	fractol->mlx = mlx_init();
 	if (!(fractol->mlx))
 		ft_error(2);
-	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, "Fract-ol");
+	fractol->win = mlx_new_window(fractol->mlx, WIN_WIDTH, WIN_HEIGHT, \
+									"Fract-ol");
 	if (!(fractol->win))
 		ft_error(2);
 	fractol->img->ptr = mlx_new_image(fractol->mlx, WIN_WIDTH, WIN_HEIGHT);
@@ -57,7 +59,6 @@ void	ft_mlxinnit(t_fractol *fractol)
 						&fractol->img->endian);
 	if (!(fractol->img->data))
 		ft_error(2);
-	//ft_mlxplay(fractol);
 }
 
 int	main(int ac, char **av)
@@ -68,22 +69,8 @@ int	main(int ac, char **av)
 	ft_check(ac, av, &fractol);
 	ft_mlxinnit(&fractol);
 	ft_structinnit(&fractol);
-	ft_matrix(&fractol);
+	ft_rendering(&fractol);
 	ft_mlxhooks(&fractol);
-
-	free(fractol.img);
+	//free(fractol.img);
 	return (0);
 }
-
-
-/* int	main(int ac, char **av)
-{
-	t_fractol	fractol;
-
-	fractol.mlx = mlx_init();
-	fractol.win = mlx_new_window(fractol.mlx, 1000, 700, "Ciao");
-	mlx_key_hook(fractol.win, key_hook, &fractol);
-	mlx_loop(fractol.mlx);
-
-	return (0);
-} */

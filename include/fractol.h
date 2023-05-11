@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/10 19:42:37 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/11 17:43:23 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 # include "../libft/include/ft_printf.h"
 # include "../minilibx-linux/mlx.h"
 
-# define MAX_ITER	200
-# define WIN_WIDTH 	1000
-# define WIN_HEIGHT 1000
+# define MAX_ITER		200
+# define WIN_WIDTH		1000
+# define WIN_HEIGHT		1000
+# define ZOOM_FACTOR	1.1
 
 typedef struct s_image
 {
@@ -51,6 +52,7 @@ typedef struct s_fractol
 	double	iter;
 	double	max_iter;
 	double	zoom;
+	double	img_shift;
 	t_image	*img;
 }	t_fractol;
 
@@ -60,13 +62,14 @@ void	ft_checkjulia(int ac, char **av, t_fractol *fractol);
 void	ft_mlxinnit(t_fractol *fractol);
 void	ft_structinnit(t_fractol *fractol);
 void	ft_error(int n);
+int		ft_exit(t_fractol *fractol);
 
 void	ft_mandelbrot(t_fractol *fractol);
 void	ft_julia(t_fractol *fractol);
 void	ft_yarrr(t_fractol *fracol);
 void	ft_newton(t_fractol *fractol);
 
-void	ft_matrix(t_fractol *fractol);
+void	ft_rendering(t_fractol *fractol);
 void	ft_coordinates(t_fractol *fractol);
 int		color(int iter);
 void	ft_pixelput(t_image *img, int x, int y, int color);
