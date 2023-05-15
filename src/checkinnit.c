@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:41:32 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/11 17:43:34 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:10:21 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,7 @@ void	ft_structinnit(t_fractol *fractol)
 	fractol->max_iter = MAX_ITER;
 	fractol->zoom = MAX_ITER;
 	fractol->img_shift = 1.1;
+	fractol->color_iter = 0;
+	color_set(fractol);
+
 }

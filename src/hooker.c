@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/11 16:39:57 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:24:59 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	key_hook(int key, t_fractol *fractol)
 		fractol->x_min -= fractol->img_shift;
 	if (key == ARROW_RIGHT)
 		fractol->x_min += fractol->img_shift;
+	if (key == C_KEY || key == Z_KEY)
+		ft_coloriter(key, fractol);
 	printf("key : %d\n", key);
 	printf("zoom : %f\n", fractol->zoom);
 	ft_rendering(fractol);
@@ -59,7 +61,6 @@ int	zoom_hook(int button, int x, int y, t_fractol *fractol)
 		return (0);
 	fractol->x_min = tmpx - (x / fractol->zoom);
 	fractol->y_min = tmpy - (y / fractol->zoom);
-	printf("display shift : %f\n", fractol->img_shift);
 	ft_rendering(fractol);
 	return (0);
 }

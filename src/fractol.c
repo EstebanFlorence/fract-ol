@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/11 16:13:41 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:20:21 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int	main(int ac, char **av)
 	ft_structinnit(&fractol);
 	ft_rendering(&fractol);
 	ft_mlxhooks(&fractol);
-	//free(fractol.img);
+	ft_destroy(&fractol);
 	return (0);
 }

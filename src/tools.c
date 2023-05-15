@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/11 16:42:34 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:19:45 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,6 @@ void	ft_coordinates(t_fractol *fractol)
 	}
 }
 
-int	color(int iter)
-{
-	unsigned int	color;
-
-	color = 0xFF66B0F0;
-	color += (iter * 255 / MAX_ITER) << 16;
-	color += (iter * 255 / MAX_ITER) << 8;
-	color += (iter * 255 / MAX_ITER);
-	return (color);
-}
-
 void	ft_pixelput(t_image *img, int x, int y, int color)
 {
 	char	*dst;
@@ -81,6 +70,17 @@ int	ft_exit(t_fractol *fractol)
 	mlx_destroy_display(fractol->mlx);
 	free(fractol->img);
 	free(fractol->mlx);
+	ft_freecolors(fractol);
 	exit (EXIT_SUCCESS);
 	return (0);
+}
+
+void	ft_destroy(t_fractol *fractol)
+{
+	mlx_destroy_image(fractol->mlx, fractol->img->ptr);
+	mlx_destroy_window(fractol->mlx, fractol->win);
+	mlx_destroy_display(fractol->mlx);
+	free(fractol->img);
+	free(fractol->mlx);
+	ft_freecolors(fractol);
 }

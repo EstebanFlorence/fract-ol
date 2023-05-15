@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:50:42 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/08 23:44:13 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 00:57:13 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define Y_KEY 121
 # define Z_KEY 122
 # define X_KEY 120
+# define C_KEY	99
 
 # define KZERO	48
 # define KONE	49

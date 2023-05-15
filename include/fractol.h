@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/11 17:43:23 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:23:54 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define WIN_WIDTH		1000
 # define WIN_HEIGHT		1000
 # define ZOOM_FACTOR	1.1
+# define COLOR_SETS		4
 
 typedef struct s_image
 {
@@ -49,10 +50,14 @@ typedef struct s_fractol
 	double	zy;
 	double	cx;
 	double	cy;
-	double	iter;
-	double	max_iter;
 	double	zoom;
 	double	img_shift;
+	int		iter;
+	int		max_iter;
+
+	int		color_iter;
+	int		*color_set[COLOR_SETS];
+
 	t_image	*img;
 }	t_fractol;
 
@@ -63,6 +68,7 @@ void	ft_mlxinnit(t_fractol *fractol);
 void	ft_structinnit(t_fractol *fractol);
 void	ft_error(int n);
 int		ft_exit(t_fractol *fractol);
+void	ft_destroy(t_fractol *fractol);
 
 void	ft_mandelbrot(t_fractol *fractol);
 void	ft_julia(t_fractol *fractol);
@@ -71,10 +77,14 @@ void	ft_newton(t_fractol *fractol);
 
 void	ft_rendering(t_fractol *fractol);
 void	ft_coordinates(t_fractol *fractol);
-int		color(int iter);
 void	ft_pixelput(t_image *img, int x, int y, int color);
 void	ft_mlxplay(t_fractol *fractol);
 void	ft_mlxhooks(t_fractol *fractol);
+
+void		ft_coloriter(int key, t_fractol *fractol);
+void	color_set(t_fractol *fractol);
+int		ft_pixelcolor(t_fractol *fractol);
+void	ft_freecolors(t_fractol *fractol);
 
 int		zoom_hook(int button, int x, int y, t_fractol *fractol);
 int		key_hook(int key, t_fractol *fractol);
