@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/16 01:24:59 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 02:25:33 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,26 @@ int	zoom_hook(int button, int x, int y, t_fractol *fractol)
 	fractol->y_min = tmpy - (y / fractol->zoom);
 	ft_rendering(fractol);
 	return (0);
+}
+
+void	ft_coloriter(int key, t_fractol *fractol)
+{
+	int	i;
+
+	i = fractol->color_iter;
+	if (key == C_KEY)
+	{
+		if (i < COLOR_SETS - 1)
+			i++;
+		else
+			i = 0;
+	}
+	if (key == Z_KEY)
+	{
+		if (i > 0)
+			i--;
+		else
+			i = COLOR_SETS - 1;
+	}
+	fractol->color_iter = i;
 }

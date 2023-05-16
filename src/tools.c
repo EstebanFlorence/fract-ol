@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/16 01:19:45 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/16 02:27:15 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_error(int n)
 		perror("mlx error");
 	if (n == 3)
 		perror("hook error");
+	if (n == 4)
+		perror("color setting");
 	exit(EXIT_FAILURE);
 }
 
