@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:41:31 by esteban           #+#    #+#             */
-/*   Updated: 2023/05/19 12:26:20 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:18:54 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # define WIN_HEIGHT		1000
 # define ZOOM_FACTOR	1.3
 # define COLOR_SETS		6
+
+typedef struct s_set
+{
+	int	*color;
+	int	size;
+}	t_set;
 
 typedef struct s_image
 {
@@ -55,7 +61,7 @@ typedef struct s_fractol
 	int		iter;
 	int		max_iter;
 	int		color_iter;
-	int		*color_set[COLOR_SETS];
+	t_set	color_set[COLOR_SETS];
 	t_image	*img;
 }	t_fractol;
 

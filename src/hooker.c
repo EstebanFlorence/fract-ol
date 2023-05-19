@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:52 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/19 12:02:37 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:14:48 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_mlxhooks(t_fractol *fractol)
 int	key_hook(int key, t_fractol *fractol)
 {
 	if (key == B_ESC)
-		exit(0);
+		ft_exit(fractol);
 	if (key == ARROW_UP)
 		fractol->y_min -= fractol->img_shift;
 	if (key == ARROW_DOWN)

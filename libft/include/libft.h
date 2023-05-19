@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:02:14 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/10 14:34:52 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:44:09 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ size_t				numstr(const char *s, char c);
 int					ft_atoi(const char *nptr);
 long int			ft_atol(const char *nbr);
 double				ft_atof(const char *nbr);
+void				ft_atoff(const char *nbr, int *sign,
+						double *power, double *res);
 char				*ft_itoa(int n);
 
 int					ft_toupper(int c);

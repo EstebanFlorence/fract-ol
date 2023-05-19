@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/19 12:02:42 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:20:57 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
-	fractol.img = malloc(sizeof(t_image));
 	ft_check(ac, av, &fractol);
+	fractol.img = malloc(sizeof(t_image));
 	ft_mlxinnit(&fractol);
 	ft_innit(&fractol);
 	ft_render(&fractol);
