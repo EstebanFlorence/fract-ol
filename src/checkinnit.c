@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:41:32 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/16 01:10:21 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:00:05 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_check(int ac, char **av, t_fractol *fractol)
 		ft_error(0);
 }
 
-void	ft_structinnit(t_fractol *fractol)
+void	ft_innit(t_fractol *fractol)
 {
 	fractol->x = 0;
 	fractol->x_min = -2.0;
@@ -52,5 +52,4 @@ void	ft_structinnit(t_fractol *fractol)
 	fractol->img_shift = 1.1;
 	fractol->color_iter = 0;
 	color_set(fractol);
-
 }

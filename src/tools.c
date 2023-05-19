@@ -6,7 +6,7 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 23:16:45 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/16 02:27:15 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:21:26 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	ft_error(int n)
 	{
 		ft_printf("\nusage: ./fractol Julia <c_real> <c_imaginary>\n");
 		ft_printf("\n<c_real> + <c_imaginary> = complex number");
-		ft_printf("\nbetween -2.000 and 2.000");
-		ft_printf("\nPlease type two values separated by a space:\n");
-		ft_printf("\nExamples:\n\t> ./fractol Julia 0.123 0.321\n\t");
-		ft_printf("> ./fractol Julia 0 -0.700");
+		ft_printf("\nbetween -2.000 and 2.000\n");
+		ft_printf("\nType two values separated by a space:\n");
+		ft_printf("Examples:\n\t> ./fractol Julia 0.29 0\n\t");
+		ft_printf(">\t\t  0 -0.700\n\t>\t\t  -1.476 0\n\n");
 		exit(EXIT_SUCCESS);
 	}
 	if (n == 2)

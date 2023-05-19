@@ -6,13 +6,13 @@
 /*   By: adi-nata <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:13:08 by adi-nata          #+#    #+#             */
-/*   Updated: 2023/05/16 01:20:21 by adi-nata         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:02:42 by adi-nata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_rendering(t_fractol *fractol)
+void	ft_render(t_fractol *fractol)
 {
 	fractol->y = 0;
 	while (fractol->y < WIN_HEIGHT)
@@ -37,8 +37,6 @@ void	ft_fractol(t_fractol *fractol)
 		ft_julia(fractol);
 	else if (fractol->fractal == 3)
 		ft_yarrr(fractol);
-/* 	else if (fractol->fractal == 4)
-		ft_isaac(fractol); */
 }
 
 void	ft_mlxinnit(t_fractol *fractol)
@@ -68,8 +66,8 @@ int	main(int ac, char **av)
 	fractol.img = malloc(sizeof(t_image));
 	ft_check(ac, av, &fractol);
 	ft_mlxinnit(&fractol);
-	ft_structinnit(&fractol);
-	ft_rendering(&fractol);
+	ft_innit(&fractol);
+	ft_render(&fractol);
 	ft_mlxhooks(&fractol);
 	ft_destroy(&fractol);
 	return (0);
