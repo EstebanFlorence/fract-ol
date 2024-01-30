@@ -28,5 +28,5 @@ fract'ol uses the [miniLibX](https://github.com/42Paris/minilibx-linux) library
   ```
   **Run**
   ```
-  ./fractol <Mandelbrot> / <Julia c_real c_imaginary> / <Burningship>
+  ./fractol <Mandelbrot> / <Julia> <c_real> <c_imaginary> / <Burningship>
   ```
