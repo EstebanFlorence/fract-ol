@@ -2,7 +2,7 @@
 fract'ol
 </h1>
 <p align="center">
-💥 RayCaster with miniLibX 💥
+Fractals renderer
 </p>
 
 <div align="center">
